@@ -135,7 +135,9 @@ class Adafruit_NeoPixel {
     updateType(neoPixelType t);
   uint8_t
    *getPixels(void) const,
-    getBrightness(void) const;
+    getBrightness(void) const,
+    sine8(uint8_t) const,
+    gamma8(uint8_t) const;
   int8_t
     getPin(void) { return pin; };
   uint16_t
@@ -148,7 +150,7 @@ class Adafruit_NeoPixel {
   inline bool
     canShow(void) { return (micros() - endTime) >= 300L; }
 
- private:
+ protected:
 
   boolean
 #ifdef NEO_KHZ400  // If 400 KHz NeoPixel support enabled...
